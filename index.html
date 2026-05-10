@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List Website - Pastel Theme</title>
+
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Daftar Tugas</h1>
+        </header>
+
+        <section class="input-section">
+            <form id="task-form" class="task-form">
+                <input 
+                    type="text"
+                    class="task-input"
+                    id="task-input"
+                    placeholder="Tambahkan tugas baru..."
+                    autocomplete="off">
+                <button type="submit" class="btn-add">Tambah</button>
+            </form>
+            <p id="error-message" class="error-message" aria-live="polite"></p>
+        </section>
+
+        <section class="filter-section">
+            <button class="filter-btn filter-btn--active" data-filter="all">Semua</button>
+            <button class="filter-btn" data-filter="active">Belum Selesai</button>
+            <button class="filter-btn" data-filter="completed">Selesai</button>
+        </section>
+
+        <section class="list-section">
+            <ul id="task-list" class="task-list"></ul>
+            <p id="empty-message" class="empty-message">
+                Belum ada tugas. Tambahkan tugas pertamamu!
+            </p>
+        </section>
+
+        <p id="storage-warning" class="storage-warning">
+            Penyimpanan lokal tidak tersedia. Data tidak akan tersimpan setelah halaman ditutup.
+        </p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
