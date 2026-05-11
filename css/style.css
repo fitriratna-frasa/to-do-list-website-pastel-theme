@@ -1,0 +1,84 @@
+/* ============================================================
+   CSS Custom Properties — Pastel Palette
+   ============================================================ */
+:root {
+    /* Background */
+    --color-bg: #fdf6f0;
+
+    /* Card colors - 5 pastel variants */
+    --color-card-1: #fde8e8; /* rose */
+    --color-card-2: #fef3cd; /* peach yelloe */
+    --color-card-3: #d4edda; /* mint green */
+    --color-card-4: #d1ecf1; /* sky blue */
+    --color-card-5: #e8d5f5; /* lavender */
+
+    /* Button */
+    --color-btn-bg: #f4a7b9;
+    --color-btn-bg-hover: #ef8faa;
+    --color-btn-text: #fff;
+
+    /* Filter button */
+    --color-filter-btn-bg: #f0e676;
+    --color-filter-btn-bg-hover: #e0ccf0;
+    --color-filter-btn-active-bg: #c9a0dc;
+    --color-filter-btn-active-text: #fff;
+
+    /* Text */
+    --color-text: #4a4a4a;
+    --color-text-muted: #a0a0a0;
+    --color-heading: #7b5ea7;
+
+    /* Error */
+    --color-error: #e05c5c;
+    --color-error-bg: #fdecea;
+
+    /* Warning */
+    --color-warning: #856404;
+    --color-warning-bg: #fff3cd;
+    --color-warning-border: #ffc107;
+
+    /* Borders & shadows */
+    --color-border: #e8d8f0;
+    --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.07);
+    --shadow-input-focus: 0 0 0 3px rgba(196, 160, 220, 0.35);
+
+    /* Typography */
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-size-base: 16px;
+    --font-size-task: 15px;
+    --font-size-small: 13px;
+
+    /* Layout */
+    --max-width: 640px;
+    --border-radius-card: 12px;
+    --border-radius-btn: 8px;
+    --border-radius-input: 8px;
+
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-normal: 250ms ease;
+    --transition-slow: 300ms ease;
+}
+
+/* ============================================================
+   Reset & Base
+   ============================================================ */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: var(--font-size-base);
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    min-height: 100vh;
+    padding: 24px 16px 48px;
+}
