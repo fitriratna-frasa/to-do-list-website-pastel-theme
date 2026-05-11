@@ -82,3 +82,101 @@ body {
     min-height: 100vh;
     padding: 24px 16px 48px;
 }
+
+/* ============================================================
+   Layout - app container
+   ============================================================ */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+/* ============================================================
+   Header
+   ============================================================ */
+.app-header {
+    text-align: center;
+}
+
+.app-header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-heading);
+    letter-spacing: 0.5px;
+}
+
+/* ============================================================
+   Input Section
+   ============================================================ */
+.input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.task-form {
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+}
+
+.task-input {
+    flex: 1;
+    padding: 10px 14px;
+    font-size: var(--font-size-base);
+    font-family: var(--font-family);
+    color: var(--color-text);
+    background-color: #fff;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--border-radius-input);
+    outline: none;
+    transition: border-color var(--transition-fast),
+                box-shadow var(--transition-fast);
+}
+
+.task-input::placeholder {
+    color: var(--color-text-muted);
+}
+
+.task-input:hover {
+    border-color: var(--color-btn-bg);
+}
+
+.task-input:focus {
+    border-color: var(--color-filter-btn-active-bg);
+    box-shadow: var(--shadow-input-focus);
+}
+
+.btn-add {
+    padding: 10px 20px;
+    font-size: var(--font-size-base);
+    font-family: var(--font-family);
+    font-weight: 600;
+    color: var(--color-btn-text);
+    background-color: var(--color-btn-bg);
+    border: none;
+    border-radius: var(--border-radius-btn);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color var(--transition-fast),
+                transform var(--transition-fast),
+                box-shadow var(--transition-fast);
+}
+
+.btn-add:hover {
+    background-color: var(--color-btn-bg-hover);
+    box-shadow: 0 3px 10px rgba(244, 167, 185, 0.45);
+}
+
+.btn-add:active {
+    transform: scale(0.97);
+}
+
+.btn-add:focus-visible {
+    outline: 2px solid var(--color-btn-bg-hover);
+    outline-offset: 2px;
+}
