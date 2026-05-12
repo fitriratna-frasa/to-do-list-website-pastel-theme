@@ -18,7 +18,7 @@
     --color-btn-text: #fff;
 
     /* Filter button */
-    --color-filter-btn-bg: #f0e676;
+    --color-filter-btn-bg: #f0e6f6;
     --color-filter-btn-bg-hover: #e0ccf0;
     --color-filter-btn-active-bg: #c9a0dc;
     --color-filter-btn-active-text: #fff;
@@ -179,4 +179,49 @@ body {
 .btn-add:focus-visible {
     outline: 2px solid var(--color-btn-bg-hover);
     outline-offset: 2px;
+}
+
+/* ============================================================
+   Filter Section
+   ============================================================ */
+.filter-section {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    flex: 1;
+    min-width: 80px;
+    padding: 8px 12px;
+    font-size: var(--font-size-small);
+    font-family: var(--font-family);
+    font-weight: 500;
+    color: var(--color-text);
+    background-color: var(--color-filter-btn-bg);
+    border: 1.5px solid transparent;
+    border-radius: var(--border-radius-btn);
+    cursor: pointer;
+    text-align: center;
+    transition: background-color var(--transition-fast),
+                color var(--transition-fast),
+                border-color var(--transition-fast),
+                box-shadow  var(--transition-fast);
+}
+
+.filter-btn:hover {
+    background-color: var(--color-filter-btn-active-bg);
+}
+
+.filter-btn:focus-visible {
+    outline: 2px solid var(--color-filter-btn-active-bg);
+    outline-offset: 2px;
+}
+
+.filter-btn--active {
+    background-color: var(--color-filter-btn-active-bg);
+    color: var(--color-filter-btn-active-text);
+    border-color: var(--color-filter-btn-active-bg);
+    box-shadow: 0 2px 6px rgba(201, 160, 220, 0.4);
+    font-weight: 600;
 }
