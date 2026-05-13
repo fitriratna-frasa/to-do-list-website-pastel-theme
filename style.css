@@ -225,3 +225,115 @@ body {
     box-shadow: 0 2px 6px rgba(201, 160, 220, 0.4);
     font-weight: 600;
 }
+
+/* ============================================================
+   Task List
+   ============================================================ */
+.list-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* ============================================================
+   Empty Message
+   ============================================================ */
+.empty-message {
+    text-align: center;
+    font-size: var(--font-size-small);
+    color: var(--color-text-muted);
+    padding: 32px 16px;
+    font-style: italic;
+}
+
+/* ============================================================
+   Storage Warning
+   ============================================================ */
+.storage-warning {
+    font-size: var(--font-size-small);
+    color: var(--color-warning);
+    background-color: var(--color-warning-bg);
+    border: 1px solid var(--color-warning-border);
+    border-radius: var(--border-radius-btn);
+    padding: 10px 14px;
+    text-align: center;
+}
+
+.storage-warning[hidden] {
+    display: none;
+}
+
+/* ============================================================
+   Responsive Breakpoint
+   ============================================================ */
+
+/* 320px - smallest phones */
+@media (max-width: 320px) {
+    body {
+        padding: 16px 10px 32px;
+    }
+
+    .app-header h1 {
+        font-size: 1.4rem;
+    }
+
+    .task-form {
+        flex-direction: column;
+    }
+
+    .btn-add {
+        width: 100%;
+    }
+
+    .filter-btn {
+        font-size: 11px;
+        padding: 7px 8px;
+    }
+}
+/* 480px - larges phones */
+@media (min-width: 321px) and (max-width: 480px) {
+    body {
+        padding: 20px 14px 40px;
+    }
+
+    .app-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .filter-btn {
+        font-size: 12px;
+    }
+}
+
+/* 780px - tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+    body {
+        padding: 28px 24px 48px;
+    }
+
+    .app-header h1 {
+        font-size: 1.65rem;
+    }
+}
+
+/* 1440px - large dekstop */
+@media (min-width: 1440px) {
+    body {
+        padding: 48px 24px 80px;
+    }
+
+    .app-header h1 {
+        font-size: 2rem;
+    }
+
+    .app-container {
+        gap: 24px;
+    }
+}
