@@ -243,6 +243,89 @@ body {
 }
 
 /* ============================================================
+   Task Item
+   ============================================================ */
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: var(--border-radius-card);
+    box-shadow: var(--shadow-card);
+    transition: transform var(--transition-normal),
+                box-shadow var(--transition-normal),
+                opacity var(--transition-normal);
+}
+
+.task-item:nth-child(5n + 1) { background-color: var(--color-card-1); }
+.task-item:nth-child(5n + 2) { background-color: var(--color-card-2); }
+.task-item:nth-child(5n + 3) { background-color: var(--color-card-3); }
+.task-item:nth-child(5n + 4) { background-color: var(--color-card-4); }
+.task-item:nth-child(5n + 5) { background-color: var(--color-card-5); }
+
+.task-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+/* Checkbox */
+.task-checkbox {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    cursor: pointer;
+    accent-color: var(--color-filter-btn-active-bg);
+    transition: transform var(--transition-fast);
+}
+
+.task-checkbox:hover {
+    transform: scale(1.15);
+}
+
+/* Task Label */
+.task-label {
+    flex: 1;
+    font-size: var(--font-size-task);
+    color: var(--color-text);
+    word-break: break-word;
+    cursor: pointer;
+    transition: color var(--transition-normal),
+                text-decoration var(--transition-normal);
+}
+
+/* Delete Button */
+.btn-delete {
+    flex-shrink: 0;
+    padding: 4px 10px;
+    font-size: var(--font-size-small);
+    font-family: var(--font-family);
+    color: var(--color-text-muted);
+    background-color: transparent;
+    border: 1.5px solid var(--color-text-muted);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: color var(--transition-fast),
+                border-color var(--transition-fast),
+                background-color var(--transition-fast),
+                transform var(--transition-fast);
+}
+
+.btn-delete:hover {
+    color: var(--color-error);
+    border-color: var(--color-error);
+    background-color: var(--color-error-bg);
+}
+
+.btn-delete:active {
+    transform: scale(0.95);
+}
+
+.btn-delete:focus-visible {
+    outline: 2px solid var(--color-error);
+    outline-offset: 2px;
+}
+
+/* ============================================================
    Empty Message
    ============================================================ */
 .empty-message {
