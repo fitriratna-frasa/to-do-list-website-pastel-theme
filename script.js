@@ -12,7 +12,7 @@ function isStorageAvailable() {
         localStorage.setItem(testKey, '1');
         localStorage.removeItem(testKey);
         return true;
-    } catch {
+    } catch (e) {
         return false;
     }
 }
@@ -28,7 +28,7 @@ function loadTasks() {
     try {
         const data = localStorage.getItem(STORAGE_KEY);
         tasks = data ? JSON.parse(data) : [];
-    } catch {
+    } catch (e) {
         tasks = [];
     }
 }
@@ -112,7 +112,7 @@ function getFilteredTasks() {
 }
 
 function renderList() {
-    const taskList = document.getElementById('taskList');
+    const taskList = document.getElementById('task-list');
     taskList.innerHTML = '';
 
     const filtered = getFilteredTasks();
@@ -124,7 +124,7 @@ function renderList() {
 }
 
 function updateEmptyState() {
-    const emptyMessage = document.getElementById('emptyMessage');
+    const emptyMessage = document.getElementById('empty-message');
     const filtered = getFilteredTasks();
 
     if (filtered.length === 0) {
@@ -135,22 +135,81 @@ function updateEmptyState() {
 }
 
 function showError(message) {
-    const errorMessage = document.getElementById('errorMessage');
+    const errorMessage = document.getElementById('error-message');
     errorMessage.textContent = message;
 }
 
 function clearError() {
-    const errorMessage = document.getElementById('errorMessage');
+    const errorMessage = document.getElementById('error-message');
     errorMessage.textContent = '';
 }
 
 function updateFilterButtons() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     filterButtons.forEach((btn) => {
-        if (btn.dataset('data-filter') === currentFilter) {
+        if (btn.getAttribute('data-filter') === currentFilter) {
             btn.classList.add('filter-btn--active');
         } else {
             btn.classList.remove('filter-btn--active');
         }
     });
 }
+
+// ============================================================
+// Event Handlers
+// ============================================================
+
+function handleFormSubmit(e) {
+    e.preventDefault();
+    const taskInput = document.getElementById('task-input');
+    const value = taskInput.value;
+
+    if (value.trim() === '') {
+        showError('Tugas tidak boleh kosong');
+        return;
+    }
+
+    addTask(value);
+    clearError();
+    taskInput.value = '';
+    renderList();
+}
+
+function handleTaskClick(e) {
+    if (e.target.classList.contains('task-checkbox')) {
+        const id = e.target.closest('.task-item').dataset.id;
+        toggleTask(id);
+        renderList();
+    }
+
+    if (e.target.classList.contains('btn-delete')) {
+        const id = e.target.closest('.task-item').dataset.id;
+        deleteTask(id);
+        renderList();
+    }
+}
+
+function handleFilterClick(e) {
+    const filter = e.currentTarget.getAttribute('data-filter');
+    currentFilter = filter;
+    updateFilterButtons();
+    renderList();
+}
+
+function init() {
+    if (!isStorageAvailable()) {
+        document.getElementById('storage-warning').removeAttribute('hidden');
+    }
+
+    loadTasks();
+    renderList();
+
+    document.getElementById('task-form').addEventListener('submit', handleFormSubmit);
+    document.getElementById('task-list').addEventListener('click', handleTaskClick);
+    document.querySelectorAll('.filter-btn').forEach((btn) =>
+        btn.addEventListener('click', handleFilterClick)
+    );
+    document.getElementById('task-input').addEventListener('input', clearError);
+}
+
+document.addEventListener('DOMContentLoaded', init);
